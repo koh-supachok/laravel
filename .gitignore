@@ -63,4 +63,6 @@ storage/
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
 # phpstorm
-.idea
+
+**/.idea/workspace.xml
+**/.idea/tasks.xml
