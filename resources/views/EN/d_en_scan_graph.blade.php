@@ -73,10 +73,10 @@
                                 <div class="statistic-box">
                                     <ul class="list-group clear-list m-t">
                                         <li class="list-group-item fist-item">
-                                            <span class="label label-default">1</span> จำนวนแฟ้มที่แสกนทั้งหมด
+                                            <span class="label label-default">1</span> แฟ้มที่แสกนทั้งหมด
                                         </li>
                                         <li class="list-group-item">
-                                            <span class="label label-success">2</span> จำนวนแฟ้มที่ผ่านการตรวจสอบ
+                                            <span class="label label-success">2</span> แฟ้มที่ผ่านการตรวจสอบ
                                         </li>
                                     </ul>
 
