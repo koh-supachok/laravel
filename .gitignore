@@ -64,3 +64,4 @@ storage/
 .rocketeer/
 # phpstorm
 *.idea*
+.idea/workspace.xml

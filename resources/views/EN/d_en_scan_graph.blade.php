@@ -151,7 +151,7 @@
         </div>
         <div class="col-sm-6">
             <div class="flot-chart dashboard-chart">
-                <canvas id="canvas" height="100" ></canvas>
+                <canvas id="canvas"  ></canvas>
             </div>
             <div class="row text-left">
                 <div class="col-xs-4">
