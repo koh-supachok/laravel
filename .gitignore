@@ -53,4 +53,8 @@ Temporary Items
 Homestead.yaml
 Homestead.json
 .env
+<<<<<<< HEAD
+/.idea
+=======
 .idea
+>>>>>>> 2388ad4d25cec54b5aa040a398c7ff6492b79f38
