@@ -46,15 +46,21 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# laravel
-/vendor
-/node_modules
-/public/storage
-Homestead.yaml
-Homestead.json
+vendor/
+node_modules/
+
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+bootstrap/cache/
+storage/
+.env.*.php
+.env.php
 .env
-<<<<<<< HEAD
-/.idea
-=======
+
+# Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
+.rocketeer/
+# phpstorm
 .idea
->>>>>>> 2388ad4d25cec54b5aa040a398c7ff6492b79f38
