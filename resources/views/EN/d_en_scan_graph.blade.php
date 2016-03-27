@@ -11,7 +11,7 @@
                     </div>
                     <div class="ibox-content">
                         <h1 class="no-margins">{{$scan['Count_All']}} </h1>
-                        <div class="stat-percent font-bold text-success">100% <i class="fa fa-bolt"></i></div>
+                        <div class="stat-percent font-bold text-success">100% <i class="fa fa-book"></i></div>
                         <small>แฟ้ม</small>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                     </div>
                     <div class="ibox-content">
                         <h1 class="no-margins">{{$scan['Count_OK']}}</h1>
-                        <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
+                        <div class="stat-percent font-bold text-info">{{$scan['progress']}}% <i class="fa fa-line-chart"></i></div>
                         <small>แฟ้ม</small>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="ibox-content">
                         <h1 class="no-margins">{{$scan['speed']}}</h1>
-                        <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div>
+
                         <small>แฟ้ม / วัน</small>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="ibox-content">
                         <h1 class="no-margins">{{$scan['est']}}</h1>
-                        <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div>
+
                         <small>เดือน</small>
                     </div>
                 </div>
@@ -73,10 +73,10 @@
                                 <div class="statistic-box">
                                     <ul class="list-group clear-list m-t">
                                         <li class="list-group-item fist-item">
-                                            <span class="label label-default">1</span> แฟ้มที่แสกนทั้งหมด
+                                            <span class="label label-default">&nbsp;</span> แฟ้มที่แสกนทั้งหมด
                                         </li>
                                         <li class="list-group-item">
-                                            <span class="label label-success">2</span> ผ่านการตรวจสอบ
+                                            <span class="label label-success">&nbsp;</span> ผ่านการตรวจสอบ
                                         </li>
                                     </ul>
 

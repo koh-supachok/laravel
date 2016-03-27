@@ -3,6 +3,60 @@
 @section('content')
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-success pull-right">All</span>
+                        <h5>จำนวนแฟ้มสแกนวันนี้</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{$scan_det['Count_today']}} </h1>
+
+                        <small>แฟ้ม</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-info pull-right">OK</span>
+                        <h5>แสกนสำเร็จวันนี้</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{$scan_det['Count_today_OK']}}</h1>
+
+                        <small>แฟ้ม</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-primary pull-right">Speed</span>
+                        <h5>ความเร็วเฉลี่ย (3วัน)</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{$scan_det['speed']}}</h1>
+
+                        <small>แฟ้ม / วัน</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-danger pull-right">Progress</span>
+                        <h5>ความก้าวหน้า</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{$scan_det['progress']}}%</h1>
+
+                        <small>&nbsp;</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">

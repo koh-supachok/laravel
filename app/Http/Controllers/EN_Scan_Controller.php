@@ -10,6 +10,7 @@ use Session, DB;
 use Input;
 //use App\Model\en_scan as EN_scan;
 use App\Model\en_scan_complete as EN_scan_complete;
+use App\Model\en_scan_log as EN_scan_log;
 
 class EN_Scan_Controller extends Controller
 {
@@ -23,13 +24,38 @@ class EN_Scan_Controller extends Controller
 	public function en_scan()
 	{
 		$user = Auth::user();
-		//$scan = DB::connection('mysql2')->select('select * from en_scan_log ORDER BY ca_dt DESC LIMIT 20');
+        $scan_det = array();
+        $en_scan_complete = EN_scan_complete::get();
+        //$en_scan_log = EN_scan_log::where('ca_dt', '>=', date('Y-m-d').' 00:00:00')->get();
+        //$en_scan_log = EN_scan_log::where(DATE(`ca_dt`), '=', '2016-03-25 ')->get();
+        //$en_scan_lo = $en_scan_log->whereDate('created_at', '=', date('Y-m-d'));
+
+        $rawqry = "SELECT COUNT(id) AS Cnt FROM `en_scan_log` WHERE `ca_dt` like '%".date('Y-m-d')."%'";
+        $en_scan_log = DB::select( DB::raw($rawqry) );
+
+        $rawqry = "SELECT COUNT(id) AS Cnt FROM `en_scan_complete` WHERE `ca_dt` like '%".date('Y-m-d')."%'";
+        $en_scan_ok_today = DB::select( DB::raw($rawqry) );
+
 		$scan = DB::connection('mysql2')->table("en_scan_log")->orderBy("ca_dt", "desc")->paginate(10);
+
+        $rawqry = "select t1.All, t2.Complete, t1.Date from (SELECT COUNT(*)AS 'All',DATE(`ca_dt`)AS Date FROM `en_scan_log` GROUP BY DATE(`ca_dt`)) t1 left join (SELECT COUNT(*)AS 'Complete',DATE(`ca_dt`)AS Date FROM `en_scan_complete` GROUP BY DATE(`ca_dt`)) t2 on t1.Date = t2.Date";
+        $results = DB::select( DB::raw($rawqry) );
+        $last_3 = $arr = array_slice($results, -3);
+        $en_scan_avg = ($last_3[0]->Complete + $last_3[1]->Complete + $last_3[2]->Complete)/3;
+
+        $rawqry = "SELECT MAX(CAST(`FILE` AS UNSIGNED) ) AS 'mfile' FROM `en_scan` WHERE concat('',`FILE` * 1) = `FILE` ORDER BY CAST(`FILE` AS UNSIGNED) DESC";
+        $en_scan = DB::select( DB::raw($rawqry) );
+
+        $scan_det['Count_today'] = number_format((int)$en_scan_log[0]->Cnt);
+        $scan_det['Count_today_OK'] = number_format((int)$en_scan_ok_today[0]->Cnt);
+        $scan_det['speed'] = number_format($en_scan_avg);
+        $scan_det['progress'] = number_format($en_scan_complete->count()*100/(($en_scan[0]->mfile)), 2, '.', '');
+        //print_r($scan['Count_today']);
 		if ($user)
 		{
-			return view('EN.d_en_scan_result',compact('name','user','scan'));
+			return view('EN.d_en_scan_result',compact('user','scan','scan_det'));
 		}
-		return view('test.solar',compact('name','user','scan'));
+		return view('test.solar',compact('name','user','scan','scan_det'));
 	}
 
 	public function en_scan_graph()
@@ -73,6 +99,7 @@ class EN_Scan_Controller extends Controller
         $scan['Count_OK'] = number_format($en_scan_complete->count());
         $scan['speed'] = number_format($en_scan_avg);
         $scan['est'] = number_format(($en_scan[0]->mfile/$en_scan_avg)/22, 2, '.', '');
+        $scan['progress'] = number_format($en_scan_complete->count()*100/(($en_scan[0]->mfile)), 2, '.', '');
 
 		foreach ($results as $rec) {
 			$scan['All'][$cnt] = (int)$rec->All;
