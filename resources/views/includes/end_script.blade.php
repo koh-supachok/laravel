@@ -44,11 +44,10 @@
 //
 //    });
 
-    $(window).load(function() {
-        // Animate loader off screen
-        $(".se-pre-con").fadeOut("slow");;
-    });
+//    $(window).load(function() {
+//        // Animate loader off screen
+//        $(".se-pre-con").fadeOut("slow");;
+//    });
 </script>
 
-<link href="{{ asset(env('ASSET_PATH').'/css/animate.css') }}" rel="stylesheet">
-<link href="{{ asset(env('ASSET_PATH').'/css/style.css') }}" rel="stylesheet" media="all">
+

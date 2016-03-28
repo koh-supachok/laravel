@@ -15,6 +15,7 @@ Route::get('about','PagesController@about');
 Route::get('ekarat','PagesController@ekarat');
 Route::get('en_scan','EN_Scan_Controller@en_scan');
 Route::get('en_scan_graph','EN_Scan_Controller@en_scan_graph');
+Route::get('en_scan_search','EN_Scan_Controller@en_scan_search');
 Route::post('ajax/refresh_log','EN_Scan_Controller@refresh_scan_log');
 Route::post('ajax/scan_summary_api','EN_Scan_Controller@scan_summary_api');
 Route::get('home', 'HomeController@index');
@@ -23,6 +24,7 @@ Route::get('/', function () {
     return view('welcome');
     //return 'hello world';
 });
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',

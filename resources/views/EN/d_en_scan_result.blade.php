@@ -1,6 +1,8 @@
 @extends('ekarat')
 
 @section('content')
+    <input type="hidden" id="alldoc" value={{$scan_det['all']}}>
+    <input type="hidden" id="allok" value={{$scan_det['allok']}}>
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-lg-3">
@@ -10,7 +12,7 @@
                         <h5>จำนวนแฟ้มสแกนวันนี้</h5>
                     </div>
                     <div class="ibox-content">
-                        <h1 class="no-margins">{{$scan_det['Count_today']}} </h1>
+                        <h1 class="no-margins" id="all">{{$scan_det['Count_today']}} </h1>
 
                         <small>แฟ้ม</small>
                     </div>
@@ -23,7 +25,7 @@
                         <h5>แสกนสำเร็จวันนี้</h5>
                     </div>
                     <div class="ibox-content">
-                        <h1 class="no-margins">{{$scan_det['Count_today_OK']}}</h1>
+                        <h1 class="no-margins" id="ok">{{$scan_det['Count_today_OK']}}</h1>
 
                         <small>แฟ้ม</small>
                     </div>
@@ -49,9 +51,11 @@
                         <h5>ความก้าวหน้า</h5>
                     </div>
                     <div class="ibox-content">
-                        <h1 class="no-margins">{{$scan_det['progress']}}%</h1>
-
-                        <small>&nbsp;</small>
+                        <h1 class="no-margins" id="progress">{{$scan_det['progress']}}%</h1>
+                        <div class="progress progress-mini">
+                            <div style="width: {{$scan_det['progress']}}%;" class="progress-bar" id="progress_bar"></div>
+                        </div>
+                        <small></small>
                     </div>
                 </div>
             </div>
@@ -124,6 +128,8 @@
             });
             var $row = $('table tr:nth-child(1) td:nth-child(1)').text();
             var $col= [];
+            var all = document.getElementById("alldoc").value;
+            var ok = document.getElementById("allok").value;
             var fetch = setInterval(refresh, 3000);
             //$row = 40;
             function nl2br (str, is_xhtml) {
@@ -131,10 +137,33 @@
                 return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
             }
 
+            var QueryString = function () {
+                // This function is anonymous, is executed immediately and
+                // the return value is assigned to QueryString!
+                var query_string = {};
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++) {
+                    var pair = vars[i].split("=");
+                    // If first entry with this name
+                    if (typeof query_string[pair[0]] === "undefined") {
+                        query_string[pair[0]] = decodeURIComponent(pair[1]);
+                        // If second entry with this name
+                    } else if (typeof query_string[pair[0]] === "string") {
+                        var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+                        query_string[pair[0]] = arr;
+                        // If third or later entry with this name
+                    } else {
+                        query_string[pair[0]].push(decodeURIComponent(pair[1]));
+                    }
+                }
+                return query_string;
+            }();
+            var newok = 0;
             function refresh(){
                 //$("<tr><td>"+$row+"</td><td>test id</td><td>"+$row+"</td><td>date</td></tr>").prependTo("table > tbody");
                 //$row++;
-
+                if((!(QueryString.page > 1))||((QueryString.page === null)))
                 $.ajax({
                     url: "ajax/refresh_log",
                     method: 'POST',
@@ -142,7 +171,21 @@
 
                     success: function(data) {
                         var $i = 0;
-                        $.each(data, function() {
+
+                        if( data['update']!="" ) {
+                            //alert(QueryString.page);
+                            //var allok = document.getElementById("ok").value;
+                            //alert(JSON.stringify(data));
+                            newok = Number(ok) + (Number(data['ok']) - Number(document.querySelector('#ok').innerHTML));
+                            newok = (newok*100) / Number(all);
+                            document.querySelector('#all').innerHTML = data['all'];
+                            document.querySelector('#ok').innerHTML = data['ok'];
+                            document.querySelector('#progress').innerHTML = newok;
+                            document.getElementById("progress_bar").style.width = newok +"%";
+
+                        }
+                        //alert(data['update']);
+                        $.each(data['update'], function() {
                             $.each(this, function(k, v) {
                                 //console.log(k +"-"+v);
                                 $col[k]=v;
