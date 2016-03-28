@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
+use App\Classes\Menu;
 //use App\Http\Controllers\Controller;
 use Session, DB;
 use Input;
@@ -34,6 +35,7 @@ class EN_Scan_Controller extends Controller
 	public function en_scan()
 	{
 		$user = Auth::user();
+		$menu = Menu::create();
         $scan_det = array();
         $en_scan_complete = EN_scan_complete::get();
         //$en_scan_log = EN_scan_log::where('ca_dt', '>=', date('Y-m-d').' 00:00:00')->get();
@@ -61,7 +63,7 @@ class EN_Scan_Controller extends Controller
         //print_r($scan['Count_today']);
 		if ($user)
 		{
-			return view('EN.d_en_scan_result',compact('user','scan','scan_det'));
+			return view('EN.d_en_scan_result',compact('menu','user','scan','scan_det'));
 		}
 		return view('test.solar',compact('name','user','scan','scan_det'));
 	}
@@ -71,6 +73,7 @@ class EN_Scan_Controller extends Controller
 		$user = Auth::user();
         //$en_scan = EN_scan::get();
         $en_scan_complete = EN_scan_complete::get();
+		$menu = Menu::create();
         //$en_scan2 = EN_scan::with( 'FILE')->min('FILE')->get();
         //$en_scan_ok = EN_scan_complete::groupBy(DB::raw('DATE(ca_dt)'))->get();
         //$scan = DB::connection('mysql2')->select('select * from en_scan_log ORDER BY ca_dt DESC LIMIT 20');
@@ -102,7 +105,7 @@ class EN_Scan_Controller extends Controller
 		}
 		if ($user)
 		{
-			return view('EN.d_en_scan_graph',compact('name','user','scan'));
+			return view('EN.d_en_scan_graph',compact('menu','user','scan'));
 		}
 		return view('test.solar',compact('name','user','scan'));
 	}
@@ -131,7 +134,7 @@ class EN_Scan_Controller extends Controller
     public function en_scan_search()
     {
         $user = Auth::user();
-
-        return view('EN.d_en_scan_search',compact('user'));
+		$menu = Menu::create();
+        return view('EN.d_en_scan_search',compact('menu','user'));
     }
 }
