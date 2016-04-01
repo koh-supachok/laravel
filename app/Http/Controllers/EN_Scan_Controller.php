@@ -9,9 +9,9 @@ use App\Classes\Menu;
 //use App\Http\Controllers\Controller;
 use Session, DB;
 use Input;
-//use App\Model\en_scan as EN_scan;
+use App\Model\en_scan as EN_scan;
 use App\Model\en_scan_complete as EN_scan_complete;
-use App\Model\en_scan_log as EN_scan_log;
+//use App\Model\en_scan_log as EN_scan_log;
 
 class EN_Scan_Controller extends Controller
 {
@@ -137,4 +137,82 @@ class EN_Scan_Controller extends Controller
 		$menu = Menu::create();
         return view('EN.d_en_scan_search',compact('menu','user'));
     }
+
+	public function en_scan_search_feed(Request $request)
+	{
+		$page = $request->input()['page']; // get the requested page
+		$limit = $request->input()['rows']; // get how many rows we want to have into the grid
+		$sidx = $request->input()['sidx']; // get index row - i.e. user click to sort
+		$sord = $request->input()['sord']; // get the direction
+		if(!$sidx) $sidx =1;
+		$en_scan = EN_scan::get();
+        $responce = array();
+		if(isset($request->input()["search"]))
+            $count = EN_scan::where('FILE', 'like', '%' . $request->input()["search"] . '%')->get()->count();
+		else $count = EN_scan::get()->count();;
+//		$db->where('ps_rankname', '%'.$search.'%', 'LIKE');
+//		$db->orWhere('ps_name', '%'.$search.'%', 'LIKE');
+//		$db->orWhere('ps_parien', '%'.$search.'%', 'LIKE');
+//		$db->orWhere('rk_det', '%'.$search.'%', 'LIKE');
+//		//$db->orWhere('tp_name', '%'.$search.'%', 'LIKE');
+//		$db->orWhere('ps_year', '%'.$search.'%', 'LIKE');
+//		$db->join("dra_pspriests_rank", "ps_r_id=rk_id", "LEFT");
+//		$count = $db->getValue ("dra_pspriests", "count(*)");
+
+		//$count = EN_scan::get()->count();
+
+		if( $count >0 ) {
+			$total_pages = ceil($count/$limit);
+		} else {
+			$total_pages = 0;
+		}
+		if ($page > $total_pages) $page=$total_pages;
+		$start = $limit*$page - $limit; // do not put $limit*($page - 1)
+		if ($start < 0) $start = 0;
+		//$db->orderBy($sidx,$sord);
+
+		// $temples = $db->subQuery ("u");
+		// $temples->join("dra_provinces", "tp_province=pv_id", "LEFT");
+		// $temples->join("dra_amphures", "tp_amphur=amp_id", "LEFT");
+		// $temples->join("dra_districts", "tp_district=dt_id", "LEFT");
+		// $temples->get ("dra_temples");
+		// $db->join($temples, "ps_temple=u.tp_id", "LEFT");
+
+		//$db->join("dra_pspriests_rank", "ps_r_id=rk_id", "LEFT");
+
+//		if(isset($_GET["search"]))
+//			$search = $_GET['search'];
+//		else
+//			$search = "";
+//		$db->where('ps_rankname', '%'.$search.'%', 'LIKE');
+//		$db->orWhere('ps_name', '%'.$search.'%', 'LIKE');
+//		$db->orWhere('ps_parien', '%'.$search.'%', 'LIKE');
+//		$db->orWhere('rk_det', '%'.$search.'%', 'LIKE');
+//		//$db->orWhere('tp_name', '%'.$search.'%', 'LIKE');
+//		$db->orWhere('ps_year', '%'.$search.'%', 'LIKE');
+//
+//		//$db->join("dra_temples", "ps_temple=tp_id", "LEFT");
+//		$users = $db->get("dra_pspriests" , Array ($start, $limit), "ps_id , ps_pic , ps_rankname, ps_year, ps_name, ps_parien, rk_det, ps_temple ");//concat('วัด',tp_name, ' /', pv_name, '/', amp_name, '/', dt_name) AS temple");
+//		//print_r($users);
+// force current page to 5
+        if(isset($request->input()["search"]))
+            $users = EN_scan::where('FILE', 'like', '%' . $request->input()["search"] . '%')->orderBy($sidx,$sord)->take($limit)->skip($start)->get();
+        else $users = EN_scan::orderBy($sidx,$sord)->take($limit)->skip($start)->get();
+
+        //$users = EN_scan::orderBy($sidx,$sord)->take($limit)->skip($start)->get();
+
+		$i=0;
+//		if ($db->count > 0)
+
+		$responce['page'] = $page;
+		$responce['total'] = $total_pages;
+		$responce['records'] = $count;
+		foreach ($users as $user) {
+			$responce['rows'][$i]['id']=$user['id'];
+			$responce['rows'][$i]['cell']=array($user->DESIGN,$user->FILE,$user->TYPE,$user->KVA,$user->PH,$user->VECTOR,$user->VOLT,$user->REMARK,$user->SO);
+			$i++;
+		}
+		//echo json_encode($responce);
+		return \Response::json($responce);
+	}
 }

@@ -16,6 +16,7 @@ Route::get('ekarat','PagesController@ekarat');
 Route::get('en_scan','EN_Scan_Controller@en_scan');
 Route::get('en_scan_graph','EN_Scan_Controller@en_scan_graph');
 Route::get('en_scan_search','EN_Scan_Controller@en_scan_search');
+Route::get('en_scan_search_feed','EN_Scan_Controller@en_scan_search_feed');
 Route::post('ajax/refresh_log','EN_Scan_Controller@refresh_scan_log');
 Route::post('ajax/scan_summary_api','EN_Scan_Controller@scan_summary_api');
 Route::get('home', 'HomeController@index');
