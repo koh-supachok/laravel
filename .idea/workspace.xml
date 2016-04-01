@@ -47,18 +47,48 @@
       <file leaf-file-name="d_en_scan_graph.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://U:/resources/views/EN/d_en_scan_graph.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="65" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="69" />
+            <state vertical-scroll-proportion="-14.769231">
+              <caret line="133" column="24" selection-start-line="133" selection-start-column="24" selection-end-line="133" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ekarat.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="d_en_scan_result.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://U:/resources/views/EN/d_en_scan_result.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5072464">
+              <caret line="185" column="25" selection-start-line="185" selection-start-column="25" selection-end-line="185" selection-end-column="25" />
+              <folding>
+                <marker date="1459497326624" expanded="true" signature="8820:9209" placeholder="..." />
+                <marker date="1459497326624" expanded="true" signature="8833:8854" placeholder="..." />
+                <marker date="1459497326624" expanded="true" signature="8856:8912" placeholder="..." />
+                <marker date="1459497326624" expanded="false" signature="8925:8946" placeholder="..." />
+                <marker date="1459497326624" expanded="true" signature="8948:9006" placeholder="..." />
+                <marker date="1459497326624" expanded="false" signature="9019:9040" placeholder="..." />
+                <marker date="1459497326624" expanded="true" signature="9042:9109" placeholder="..." />
+                <marker date="1459497326624" expanded="false" signature="9122:9143" placeholder="..." />
+                <marker date="1459497326624" expanded="true" signature="9145:9204" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ekarat.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://U:/resources/views/ekarat.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29565218">
+            <state vertical-scroll-proportion="-7.8461537">
               <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://U:/resources/views/includes/menu.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.192307">
+              <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -87,6 +117,7 @@
         <option value="U:/app/Http/Controllers/EN_Scan_Controller.php" />
         <option value="U:/resources/views/includes/page_head.blade.php" />
         <option value="U:/resources/views/ekarat.blade.php" />
+        <option value="U:/resources/views/EN/d_en_scan_result.blade.php" />
       </list>
     </option>
   </component>
@@ -283,8 +314,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26432666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -475,13 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://U:/resources/views/includes/menu.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://U:/app/Http/Controllers/EN_Scan_Controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-37.923077">
@@ -523,14 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://U:/resources/views/EN/d_en_scan_graph.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="65" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://U:/resources/views/includes/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -549,9 +565,43 @@
     </entry>
     <entry file="file://U:/resources/views/ekarat.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29565218">
+        <state vertical-scroll-proportion="-7.8461537">
           <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://U:/resources/views/includes/menu.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.192307">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://U:/resources/views/EN/d_en_scan_graph.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.769231">
+          <caret line="133" column="24" selection-start-line="133" selection-start-column="24" selection-end-line="133" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://U:/resources/views/EN/d_en_scan_result.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5072464">
+          <caret line="185" column="25" selection-start-line="185" selection-start-column="25" selection-end-line="185" selection-end-column="25" />
+          <folding>
+            <marker date="1459497326624" expanded="true" signature="8820:9209" placeholder="..." />
+            <marker date="1459497326624" expanded="true" signature="8833:8854" placeholder="..." />
+            <marker date="1459497326624" expanded="true" signature="8856:8912" placeholder="..." />
+            <marker date="1459497326624" expanded="false" signature="8925:8946" placeholder="..." />
+            <marker date="1459497326624" expanded="true" signature="8948:9006" placeholder="..." />
+            <marker date="1459497326624" expanded="false" signature="9019:9040" placeholder="..." />
+            <marker date="1459497326624" expanded="true" signature="9042:9109" placeholder="..." />
+            <marker date="1459497326624" expanded="false" signature="9122:9143" placeholder="..." />
+            <marker date="1459497326624" expanded="true" signature="9145:9204" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

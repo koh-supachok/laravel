@@ -180,7 +180,7 @@
                             newok = (newok*100) / Number(all);
                             document.querySelector('#all').innerHTML = data['all'];
                             document.querySelector('#ok').innerHTML = data['ok'];
-                            document.querySelector('#progress').innerHTML = newok;
+                            document.querySelector('#progress').innerHTML = newok.toFixed(2).toString()+"%";
                             document.getElementById("progress_bar").style.width = newok +"%";
 
                         }
