@@ -109,10 +109,6 @@
                         <h5>jQuery Grid Plugin – jqGrid</h5>
                     </div>
                     <div class="ibox-content">
-                        <p>
-                            <strong>jqGrid</strong> is an Ajax-enabled JavaScript control that provides solutions for representing and manipulating tabular data on the web. Since the grid is a client-side solution loading data dynamically through Ajax callbacks, it can be integrated with any server-side technology, including PHP, ASP, Java Servlets, JSP, ColdFusion, and Perl.
-                            jqGrid uses a jQuery Java Script Library and is written as plugin for that package. For more information on jQuery Grid, please refer to the <a target="_blank" href="http://www.trirand.com/blog/"> jqGrid web site.</a>
-                        </p>
 
                         <h4>Basic example</h4>
 
@@ -144,7 +140,7 @@
 
     <!-- jqGrid -->
     <script src="{{ asset(env('ASSET_PATH')).'/'}}js/plugins/jqGrid/i18n/grid.locale-en.js"></script>
-    <script src="{{ asset(env('ASSET_PATH')).'/'}}js/plugins/jqGrid/jquery.jqGrid.min.js"></script>
+    <script src="{{ asset(env('ASSET_PATH')).'/'}}js/plugins/jqGrid/jqgrid.src.js"></script>
 
     <!-- Custom and plugin javascript -->
     <script src="{{ asset(env('ASSET_PATH').'/js/inspinia.js') }}"></script>
@@ -189,6 +185,9 @@
                 //subgrid options
                 subGrid : true,
                 subGridOptions : {
+                    hasSubgrid: function (options) {
+                        return (options.data.Scan == "Yes");
+                    },
                     plusicon : "ace-icon fa fa-plus center bigger-110 blue",
                     minusicon  : "ace-icon fa fa-minus center bigger-110 blue",
                     openicon : "ace-icon fa fa-chevron-right center orange"
@@ -198,23 +197,16 @@
                     var subgridTableId = subgridDivId + "_t";
                     $("#" + subgridDivId).html("<table id='" + subgridTableId + "'></table>");
                     $("#" + subgridTableId).jqGrid({
-//                datatype: 'local',
-//                data: subgrid_data,
-                        url:'priest/priest_list_master.php?q=ps_sub&id='+rowId,
+                        //url:'priest/priest_list_master.php?q=ps_sub&id='+rowId,
+                        url:'en_scan_search_feed?q=sub&id='+rowId,
                         datatype: "json",
-                        //height: '100%',
-//                colNames: ['No','Item Name','Qty'],
-//                colModel: [
-//                    { name: 'id', width: 50 },
-//                    { name: 'name', width: 150 },
-//                    { name: 'qty', width: 50 }
-//                ]
-                        colNames: ['รูปภาพ','โทรศัพท์','mobile','นิกาย'],
+                        height: '100%',
+                        colNames: ['รหัสเอกสาร','บทที่','รายการ','ดาวน์โหลด'],
                         colModel: [
-                            { name: 'pic', width: 150 },
-                            { name: 'ps_phone', width: 150 },
-                            { name: 'ps_mobile', width: 150 },
-                            { name: 'ps_sect', width: 150 }
+                            { name: 'doc', width: 80 , align:"center"},
+                            { name: 'chapter', width: 50 , align:"center"},
+                            { name: 'chapter_name', width: 300, align:"center" },
+                            { name: 'download', width: 110, align:"center" }
                         ]
                     });
                 },
@@ -227,7 +219,7 @@
                 datatype: "json",
                 height: 541,
                 //colNames:[' ', 'ID','Last Sales','Name', 'Stock', 'Ship via','Notes'],
-                colNames:['DESIGN','FILE','TYPE', 'KVA', 'PH','VECTOR','VOLT','REMARK','SO'],
+                colNames:['DESIGN','FILE','TYPE', 'KVA', 'PH','VECTOR','VOLT','REMARK','SO','Scan'],
                 colModel:[
 //            {name:'id',index:'id', width:60, sorttype:"int", editable: true},
 //            {name:'sdate',index:'sdate',width:90, editable:true, sorttype:"date",unformat: pickDate},
@@ -235,15 +227,16 @@
 //            {name:'stock',index:'stock', width:70, editable: true,edittype:"checkbox",editoptions: {value:"Yes:No"},unformat: aceSwitch},
 //            {name:'ship',index:'ship', width:90, editable: true,edittype:"select",editoptions:{value:"FE:FedEx;IN:InTime;TN:TNT;AR:ARAMEX"}},
 //            {name:'note',index:'note', width:150, sortable:false,editable: true,edittype:"textarea", editoptions:{rows:"2",cols:"10"}}
-                    {name:'DESIGN',index:'DESIGN', width:35,sortable:false, align:"left"},
-                    {name:'FILE',index:'FILE', width:150},
+                    {name:'DESIGN',index:'DESIGN', width:100, align:"center"},
+                    {name:'FILE',index:'FILE', width:80, align:"center"},
                     {name:'TYPE',index:'TYPE', width:60, align:"center"},
-                    {name:'KVA',index:'KVA', width:100},
+                    {name:'KVA',index:'KVA', width:80, align:"center"},
                     {name:'PH',index:'PH', width:60, align:"center"},
-                    {name:'VECTOR',index:'VECTOR', width:160},
-                    {name:'VOLT',index:'VOLT', width:100},
-                    {name:'REMARK',index:'REMARK', width:100},
-                    {name:'SO',index:'SO', width:100},
+                    {name:'VECTOR',index:'VECTOR', width:60, align:"center"},
+                    {name:'VOLT',index:'VOLT', width:150, align:"center"},
+                    {name:'REMARK',index:'REMARK', width:200, align:"center"},
+                    {name:'SO',index:'SO', width:100, align:"center"},
+                    {name:'Scan', width:50, align:"center"}
                 ],
 
                 viewrecords : true,
@@ -253,7 +246,7 @@
                 altRows: true,
                 //toppager: true,
                 sortname: 'DESIGN',
-                sortorder: "asc",
+                sortorder: "desc",
                 multiselect: false,
                 //multikey: "ctrlKey",
                 multiboxonly: true,
@@ -312,16 +305,11 @@
             function gridReload(){
                 var search_item = jQuery("#search_item").val();
                 //alert(search_item);
-                jQuery(grid_selector).jqGrid('setGridParam',{url:"en_scan_search_feed?q=ps_master&search="+encodeURIComponent(search_item),page:1}).trigger("reloadGrid");
+                jQuery(grid_selector).jqGrid('setGridParam',{url:"en_scan_search_feed?&search="+encodeURIComponent(search_item),page:1}).trigger("reloadGrid");
             }
 
             $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
 
-
-
-            //enable search/filter toolbar
-            //jQuery(grid_selector).jqGrid('filterToolbar',{defaultSearch:true,stringResult:true})
-            //jQuery(grid_selector).filterToolbar({});
 
 
             //switch element when editing inline
