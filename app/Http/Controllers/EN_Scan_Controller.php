@@ -182,24 +182,42 @@ class EN_Scan_Controller extends Controller
 			$sub = EN_scan_pages::where('file',$file)->get();
 
 			$i = 0;
-			$responce['page'] = 1;
-			$responce['total'] = 1;
-			$responce['records'] = 1;
-			$responce['rows'][$i]['id'] = $i;
-			$responce['rows'][$i]['cell'] = array('EN-D-001', 'ทั้งหมด', '-', '<a href="/assets/docscan/OK/'.$file.'/EN-D-001 - All.pdf">download</a>');
-			$i++;
-
-			$ch2ea = explode ("#", $sub[0]->en_d_002);
-			$ch2_idx = 0;
-			foreach ($ch2ea as $user) {
-				$ch_num = explode (":", $user)[0];
-				$chap_name = EN_scan_chapter::where('id', $ch_num)->get();
-				$responce['rows'][$i]['id'] = $i;//EN-D-002 - บทที่ 0 - สารบัญ
-				$responce['rows'][$i]['cell'] = array('EN-D-002',  $ch_num, $chap_name[0]->name, '<a href="/assets/docscan/OK/'.$file.'/EN-D-002 - บทที่ '.$ch2_idx.' - '.$chap_name[0]->name.'.pdf">download</a>');
+			if($sub[0]->en_d_001 > 0) {
+				$responce['page'] = 1;
+				$responce['total'] = 1;
+				$responce['records'] = 1;
+				$responce['rows'][$i]['id'] = $i;
+				$responce['rows'][$i]['cell'] = array('EN-D-001', 'ทั้งหมด', '-', '<a href="/assets/docscan/OK/' . $file . '/EN-D-001 - All.pdf">download</a>');
 				$i++;
-				$ch2_idx++;
 			}
-
+			if($sub[0]->en_d_002_pages > 0) {
+				$ch2ea = explode("#", $sub[0]->en_d_002);
+				$ch2_idx = 0;
+				foreach ($ch2ea as $user) {
+					$ch_num = explode(":", $user)[0];
+					$chap_name = EN_scan_chapter::where('id', $ch_num)->get();
+					$responce['rows'][$i]['id'] = $i;//EN-D-002 - บทที่ 0 - สารบัญ
+					$responce['rows'][$i]['cell'] = array('EN-D-002', $ch_num, $chap_name[0]->name, '<a href="/assets/docscan/OK/' . $file . '/EN-D-002 - บทที่ ' . $ch2_idx . ' - ' . $chap_name[0]->name . '.pdf">download</a>');
+					$i++;
+					$ch2_idx++;
+				}
+			}
+			if($sub[0]->en_d_003 > 0) {
+				$responce['page'] = 1;
+				$responce['total'] = 1;
+				$responce['records'] = 1;
+				$responce['rows'][$i]['id'] = $i;
+				$responce['rows'][$i]['cell'] = array('EN-D-003', 'ทั้งหมด', '-', '<a href="/assets/docscan/OK/' . $file . '/EN-D-003 - All.pdf">download</a>');
+				$i++;
+			}
+			if($sub[0]->other > 0) {
+				$responce['page'] = 1;
+				$responce['total'] = 1;
+				$responce['records'] = 1;
+				$responce['rows'][$i]['id'] = $i;
+				$responce['rows'][$i]['cell'] = array('อื่นๆ', 'ทั้งหมด', '-', '<a href="/assets/docscan/OK/' . $file . '/EN-D-004 - All.pdf">download</a>');
+				$i++;
+			}
 //			$responce['page'] = 1;
 //			$responce['total'] = 1;
 //			$responce['records'] = 1;
