@@ -178,22 +178,23 @@ class EN_Scan_Controller extends Controller
 		}
 		else
 		{
-			$sub = EN_scan_pages::where('file', $request->input()['id'])->get();
+			$file = $request->input()['id'];
+			$sub = EN_scan_pages::where('file',$file)->get();
 
 			$i = 0;
 			$responce['page'] = 1;
 			$responce['total'] = 1;
 			$responce['records'] = 1;
 			$responce['rows'][$i]['id'] = $i;
-			$responce['rows'][$i]['cell'] = array('EN-D-001', 'ทั้งหมด', '-', '<a href="#">download</a>');
+			$responce['rows'][$i]['cell'] = array('EN-D-001', 'ทั้งหมด', '-', '<a href="/assets/docscan/OK/'.$file.'/EN-D-001 - All.pdf">download</a>');
 			$i++;
-			$ch2ea = explode ("#", $sub[0]->en_d_002);
 
+			$ch2ea = explode ("#", $sub[0]->en_d_002);
 			foreach ($ch2ea as $user) {
 				$ch_num = explode (":", $user)[0];
 				$chap_name = EN_scan_chapter::where('id', $ch_num)->get();
-				$responce['rows'][$i]['id'] = $i;
-				$responce['rows'][$i]['cell'] = array('EN-D-002',  $ch_num, $chap_name[0]->name, '<a href="/assets/docscan/OK/1/EN-D-001 - All.pdf">download</a>');
+				$responce['rows'][$i]['id'] = $i;//EN-D-002 - บทที่ 0 - สารบัญ
+				$responce['rows'][$i]['cell'] = array('EN-D-002',  $ch_num, $chap_name[0]->name, '<a href="/assets/docscan/OK/'.$file.'/EN-D-002 - บทที่ '.$ch_num.' - '.$chap_name[0]->name.'.pdf">download</a>');
 				$i++;
 			}
 
