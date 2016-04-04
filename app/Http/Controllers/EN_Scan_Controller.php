@@ -193,7 +193,7 @@ class EN_Scan_Controller extends Controller
 				$ch_num = explode (":", $user)[0];
 				$chap_name = EN_scan_chapter::where('id', $ch_num)->get();
 				$responce['rows'][$i]['id'] = $i;
-				$responce['rows'][$i]['cell'] = array('EN-D-002',  $ch_num, $chap_name[0]->name, '<a href="/asset/">download</a>');
+				$responce['rows'][$i]['cell'] = array('EN-D-002',  $ch_num, $chap_name[0]->name, '<a href="/assets/docscan/OK/1/EN-D-001 - All.pdf">download</a>');
 				$i++;
 			}
 
