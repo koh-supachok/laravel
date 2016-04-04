@@ -190,12 +190,14 @@ class EN_Scan_Controller extends Controller
 			$i++;
 
 			$ch2ea = explode ("#", $sub[0]->en_d_002);
+			$ch2_idx = 0;
 			foreach ($ch2ea as $user) {
 				$ch_num = explode (":", $user)[0];
 				$chap_name = EN_scan_chapter::where('id', $ch_num)->get();
 				$responce['rows'][$i]['id'] = $i;//EN-D-002 - บทที่ 0 - สารบัญ
-				$responce['rows'][$i]['cell'] = array('EN-D-002',  $ch_num, $chap_name[0]->name, '<a href="/assets/docscan/OK/'.$file.'/EN-D-002 - บทที่ '.$ch_num.' - '.$chap_name[0]->name.'.pdf">download</a>');
+				$responce['rows'][$i]['cell'] = array('EN-D-002',  $ch_num, $chap_name[0]->name, '<a href="/assets/docscan/OK/'.$file.'/EN-D-002 - บทที่ '.$ch2_idx.' - '.$chap_name[0]->name.'.pdf">download</a>');
 				$i++;
+				$ch2_idx++;
 			}
 
 //			$responce['page'] = 1;

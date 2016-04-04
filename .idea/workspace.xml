@@ -27,20 +27,20 @@
       <file leaf-file-name="EN_Scan_Controller.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EN_Scan_Controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7627119">
-              <caret line="196" column="135" selection-start-line="196" selection-start-column="135" selection-end-line="196" selection-end-column="135" />
+            <state vertical-scroll-proportion="0.8587571">
+              <caret line="199" column="27" selection-start-line="199" selection-start-column="27" selection-end-line="199" selection-end-column="27" />
               <folding>
-                <marker date="1459772481864" expanded="true" signature="636:719" placeholder="SELECT COUNT... en_scan_log" />
-                <marker date="1459772481864" expanded="true" signature="791:879" placeholder="SELECT COUNT... en_scan_complete" />
-                <marker date="1459772481864" expanded="true" signature="1607:1872" placeholder="select t1.Al... COUNT" />
-                <marker date="1459772481864" expanded="true" signature="1649:1735" placeholder="SELECT COUNT... " />
-                <marker date="1459772481864" expanded="true" signature="1751:1847" placeholder="SELECT COUNT... " />
-                <marker date="1459772481864" expanded="true" signature="2093:2232" placeholder="SELECT MAX(C... en_scan" />
-                <marker date="1459772481864" expanded="true" signature="3507:3772" placeholder="select t1.Al... COUNT" />
-                <marker date="1459772481864" expanded="true" signature="3549:3635" placeholder="SELECT COUNT... " />
-                <marker date="1459772481864" expanded="true" signature="3651:3747" placeholder="SELECT COUNT... " />
-                <marker date="1459772481864" expanded="true" signature="3840:3979" placeholder="SELECT MAX(C... en_scan" />
-                <marker date="1459772481864" expanded="true" signature="5096:5136" placeholder="select * fro... en_scan_log" />
+                <marker date="1459777664478" expanded="true" signature="636:719" placeholder="SELECT COUNT... en_scan_log" />
+                <marker date="1459777664478" expanded="true" signature="791:879" placeholder="SELECT COUNT... en_scan_complete" />
+                <marker date="1459777664478" expanded="true" signature="1607:1872" placeholder="select t1.Al... COUNT" />
+                <marker date="1459777664478" expanded="true" signature="1649:1735" placeholder="SELECT COUNT... " />
+                <marker date="1459777664478" expanded="true" signature="1751:1847" placeholder="SELECT COUNT... " />
+                <marker date="1459777664478" expanded="true" signature="2093:2232" placeholder="SELECT MAX(C... en_scan" />
+                <marker date="1459777664478" expanded="true" signature="3507:3772" placeholder="select t1.Al... COUNT" />
+                <marker date="1459777664478" expanded="true" signature="3549:3635" placeholder="SELECT COUNT... " />
+                <marker date="1459777664478" expanded="true" signature="3651:3747" placeholder="SELECT COUNT... " />
+                <marker date="1459777664478" expanded="true" signature="3840:3979" placeholder="SELECT MAX(C... en_scan" />
+                <marker date="1459777664478" expanded="true" signature="5096:5136" placeholder="select * fro... en_scan_log" />
               </folding>
             </state>
           </provider>
@@ -271,20 +271,20 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EN_Scan_Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7627119">
-          <caret line="196" column="135" selection-start-line="196" selection-start-column="135" selection-end-line="196" selection-end-column="135" />
+        <state vertical-scroll-proportion="0.8587571">
+          <caret line="199" column="27" selection-start-line="199" selection-start-column="27" selection-end-line="199" selection-end-column="27" />
           <folding>
-            <marker date="1459772481864" expanded="true" signature="636:719" placeholder="SELECT COUNT... en_scan_log" />
-            <marker date="1459772481864" expanded="true" signature="791:879" placeholder="SELECT COUNT... en_scan_complete" />
-            <marker date="1459772481864" expanded="true" signature="1607:1872" placeholder="select t1.Al... COUNT" />
-            <marker date="1459772481864" expanded="true" signature="1649:1735" placeholder="SELECT COUNT... " />
-            <marker date="1459772481864" expanded="true" signature="1751:1847" placeholder="SELECT COUNT... " />
-            <marker date="1459772481864" expanded="true" signature="2093:2232" placeholder="SELECT MAX(C... en_scan" />
-            <marker date="1459772481864" expanded="true" signature="3507:3772" placeholder="select t1.Al... COUNT" />
-            <marker date="1459772481864" expanded="true" signature="3549:3635" placeholder="SELECT COUNT... " />
-            <marker date="1459772481864" expanded="true" signature="3651:3747" placeholder="SELECT COUNT... " />
-            <marker date="1459772481864" expanded="true" signature="3840:3979" placeholder="SELECT MAX(C... en_scan" />
-            <marker date="1459772481864" expanded="true" signature="5096:5136" placeholder="select * fro... en_scan_log" />
+            <marker date="1459777664478" expanded="true" signature="636:719" placeholder="SELECT COUNT... en_scan_log" />
+            <marker date="1459777664478" expanded="true" signature="791:879" placeholder="SELECT COUNT... en_scan_complete" />
+            <marker date="1459777664478" expanded="true" signature="1607:1872" placeholder="select t1.Al... COUNT" />
+            <marker date="1459777664478" expanded="true" signature="1649:1735" placeholder="SELECT COUNT... " />
+            <marker date="1459777664478" expanded="true" signature="1751:1847" placeholder="SELECT COUNT... " />
+            <marker date="1459777664478" expanded="true" signature="2093:2232" placeholder="SELECT MAX(C... en_scan" />
+            <marker date="1459777664478" expanded="true" signature="3507:3772" placeholder="select t1.Al... COUNT" />
+            <marker date="1459777664478" expanded="true" signature="3549:3635" placeholder="SELECT COUNT... " />
+            <marker date="1459777664478" expanded="true" signature="3651:3747" placeholder="SELECT COUNT... " />
+            <marker date="1459777664478" expanded="true" signature="3840:3979" placeholder="SELECT MAX(C... en_scan" />
+            <marker date="1459777664478" expanded="true" signature="5096:5136" placeholder="select * fro... en_scan_log" />
           </folding>
         </state>
       </provider>
