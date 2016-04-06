@@ -26,12 +26,12 @@
                     <div class="ibox-content">
                         <div class="row">
                             <div class="col-lg-4">
-                                <div class="panel panel-default">
+                                <div class="panel panel-info">
                                     <div class="panel-heading">
                                         รหัสแฟ้ม
                                     </div>
                                     <div class="panel-body">
-                                        <input type="text" id="search_item" placeholder="รหัสแฟ้ม" class="form-control">
+                                        <input type="text" id="search_file" placeholder="รหัสแฟ้ม" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -41,32 +41,17 @@
                                         หมายเลขแบบ
                                     </div>
                                     <div class="panel-body">
-                                        <input type="text" id="search_drawing" placeholder="หมายเลขแบบ" class="form-control">
+                                        <input type="text" id="search_dwg" placeholder="หมายเลขแบบ" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="panel panel-success">
                                     <div class="panel-heading">
-                                        ประเภท
+                                        S/O
                                     </div>
                                     <div class="panel-body">
-                                        <select data-placeholder="Choose a Country..." class="chosen-select"  tabindex="2">
-                                            <option value="">Select</option>
-                                            <option value="United States">United States</option>
-                                            <option value="United Kingdom">United Kingdom</option>
-                                            <option value="Afghanistan">Afghanistan</option>
-                                            <option value="Aland Islands">Aland Islands</option>
-                                            <option value="Albania">Albania</option>
-                                            <option value="Algeria">Algeria</option>
-                                            <option value="American Samoa">American Samoa</option>
-                                            <option value="Andorra">Andorra</option>
-                                            <option value="Angola">Angola</option>
-                                            <option value="Anguilla">Anguilla</option>
-                                            <option value="Antarctica">Antarctica</option>
-                                            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                            <option value="Argentina">Argentina</option>
-                                        </select>
+                                        <input type="text" id="search_so" placeholder="หมายเลข S/O" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -219,7 +204,7 @@
                 pager : pager_selector,
                 altRows: true,
                 //toppager: true,
-                sortname: 'DESIGN',
+                sortname: 'up_dt',
                 sortorder: "desc",
                 multiselect: false,
                 //multikey: "ctrlKey",
@@ -262,24 +247,39 @@
 
             });
 
-            $( "#search_item" ).keydown(function() {
-                doSearch();
+            $( "#search_file" ).keydown(function(e) {
+                if(e.which == 13) {
+                    doSearch("search_file","FILE");
+                }
+            });
+            $( "#search_dwg" ).keydown(function(e) {
+                if(e.which == 13) {
+                    doSearch("search_dwg","DESIGN");
+                }
+            });
+            $( "#search_so" ).keydown(function(e) {
+                if(e.which == 13) {
+                    doSearch("search_so","SO");
+                }
             });
             var timeoutHnd;
             var flAuto = true;
 
-            function doSearch(ev){
+            function doSearch(input,type){
                 if(!flAuto)
                     return;
                 if(timeoutHnd)
                     clearTimeout(timeoutHnd)
-                timeoutHnd = setTimeout(gridReload,500)
+                timeoutHnd = setTimeout(gridReload(input,type),500)
             }
 
-            function gridReload(){
-                var search_item = jQuery("#search_item").val();
+            function gridReload(input,type){
+                var search_item = $('#'+input).val();
+                //search_item = input + "=" + search_item;
                 //alert(search_item);
-                jQuery(grid_selector).jqGrid('setGridParam',{url:"en_scan_search_feed?&search="+encodeURIComponent(search_item),page:1}).trigger("reloadGrid");
+                //jQuery(grid_selector).jqGrid('setGridParam',{url:"en_scan_search_feed?&"+encodeURIComponent(search_item),page:1}).trigger("reloadGrid");
+                jQuery(grid_selector).jqGrid('setGridParam',{url:"en_scan_search_feed?&search="+(search_item)+"&type="+type,page:1}).trigger("reloadGrid");
+
             }
 
             $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
