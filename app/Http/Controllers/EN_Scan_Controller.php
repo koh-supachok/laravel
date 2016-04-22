@@ -137,7 +137,12 @@ class EN_Scan_Controller extends Controller
     {
         $user = Auth::user();
 		$menu = Menu::create();
-        return view('EN.d_en_scan_search',compact('menu','user'));
+		$option['kva'] = EN_scan::select('KVA')->groupBy('KVA')->get();
+		$option['type'] = EN_scan::select('TYPE')->groupBy('TYPE')->get();
+		$option['ph'] = EN_scan::select('PH')->groupBy('PH')->get();
+		$option['vector'] = EN_scan::select('VECTOR')->groupBy('VECTOR')->get();
+		$option['volt'] = EN_scan::select('VOLT')->groupBy('VOLT')->get();
+        return view('EN.d_en_scan_search',compact('menu','user','option'));
     }
 
 	public function en_scan_search_feed(Request $request)

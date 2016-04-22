@@ -4,7 +4,7 @@
             <ul class="nav" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="{{ asset(env('ASSET_PATH').'/img/profile_small.jpg') }}" />
+                            <img alt="image" class="img-circle" src="{{ asset(env('ASSET_PATH').'/img/supachok_small.jpg') }}" />
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{$user->firstname.' '.$user->lastname}}</strong>
