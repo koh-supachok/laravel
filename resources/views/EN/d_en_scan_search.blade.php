@@ -82,8 +82,8 @@
                                 <div class="form-group">
                                     <label class="font-noraml">KVA</label>
                                     <div class="input-group">
-                                        <select  class="chosen-select" style="width:150px;">
-                                            <option value=""></option>
+                                        <select  class="chosen-select" style="width:150px;" id="kva">
+                                            <option value="">&nbsp;</option>
                                                 @foreach ($option['kva'] as $item)
                                                     <option value="{{ $item->KVA }}">{{ $item->KVA }}</option>
                                                 @endforeach
@@ -95,8 +95,8 @@
                                 <div class="form-group">
                                     <label class="font-noraml">TYPE</label>
                                     <div class="input-group">
-                                        <select class="chosen-select" style="width:150px;">
-                                            <option value=""></option>
+                                        <select class="chosen-select" style="width:150px;" id="type">
+                                            <option value="">&nbsp;</option>
                                             @foreach ($option['type'] as $item)
                                                 <option value="{{ $item->TYPE }}">{{ $item->TYPE }}</option>
                                             @endforeach
@@ -108,8 +108,8 @@
                                 <div class="form-group">
                                     <label class="font-noraml">PH</label>
                                     <div class="input-group">
-                                        <select class="chosen-select" style="width:150px;">
-                                            <option value=""></option>
+                                        <select class="chosen-select" style="width:150px;" id="ph">
+                                            <option value="">&nbsp;</option>
                                             @foreach ($option['ph'] as $item)
                                                 <option value="{{ $item->PH }}">{{ $item->PH }}</option>
                                             @endforeach
@@ -121,8 +121,8 @@
                                 <div class="form-group">
                                     <label class="font-noraml">VECTOR</label>
                                     <div class="input-group">
-                                        <select class="chosen-select" style="width:150px;">
-                                            <option value=""></option>
+                                        <select class="chosen-select" style="width:150px;" id="vector">
+                                            <option value="">&nbsp;</option>
                                             @foreach ($option['vector'] as $item)
                                                 <option value="{{ $item->VECTOR }}">{{ $item->VECTOR }}</option>
                                             @endforeach
@@ -135,7 +135,7 @@
                                     <label class="font-noraml">VOLT</label>
                                     <div class="input-group">
                                         <select class="chosen-select" style="width:250px;" id="volt">
-                                            <option value=""></option>
+                                            <option value="">&nbsp;</option>
                                             @foreach ($option['volt'] as $item)
                                                 <option value="{{ $item->VOLT }}">{{ $item->VOLT }}</option>
                                             @endforeach
@@ -240,8 +240,16 @@
             });
 
             $("#asrh_btn").click(function(){
-                doSearch("volt","VOLT");
+                //doSearch("volt","VOLT");
                 //alert($("#volt").chosen().val());
+                $volt = $("#volt").chosen().val();
+                $type = $("#type").chosen().val();
+                $ph = $("#ph").chosen().val();
+                $vector = $("#vector").chosen().val();
+                $kva = $("#kva").chosen().val();
+                $search = "en_scan_search_feed?&asearch=YES&type="+$type+"&kva="+$kva+"&volt="+$volt+"&ph="+$ph+"&vector="+$vector;
+                //alert($search);
+                jQuery(grid_selector).jqGrid('setGridParam',{url:$search,page:1}).trigger("reloadGrid");
             });
 
             var grid_selector = "#grid-table";

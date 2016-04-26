@@ -153,23 +153,50 @@ class EN_Scan_Controller extends Controller
 			$sidx = $request->input()['sidx']; // get index row - i.e. user click to sort
 			$sord = $request->input()['sord']; // get the direction
 			if (!$sidx) $sidx = 1;
-			$en_scan = EN_scan::get();
+			//$en_scan = EN_scan::get();
 			$responce = array();
-			if (isset($request->input()["search"]))
-				$count = EN_scan::where($request->input()["type"], $request->input()["search"])->get()->count();
-			else $count = EN_scan::get()->count();;
-			if ($count > 0) {
-				$total_pages = ceil($count / $limit);
-			} else {
-				$total_pages = 0;
+			if(!isset($request->input()['asearch'])) {
+				if (isset($request->input()["search"]))
+					$count = EN_scan::where($request->input()["type"], $request->input()["search"])->get()->count();
+				else $count = EN_scan::get()->count();
+				if ($count > 0) {
+					$total_pages = ceil($count / $limit);
+				} else {
+					$total_pages = 0;
+				}
+				if ($page > $total_pages) $page = $total_pages;
+				$start = $limit * $page - $limit; // do not put $limit*($page - 1)
+				if ($start < 0) $start = 0;
+				if (isset($request->input()["search"]))
+					$users = EN_scan::with('scan')->where($request->input()["type"], $request->input()["search"])->orderBy($sidx, $sord)->take($limit)->skip($start)->get();
+				else $users = EN_scan::with('scan')->orderBy($sidx, $sord)->take($limit)->skip($start)->get();
 			}
-			if ($page > $total_pages) $page = $total_pages;
-			$start = $limit * $page - $limit; // do not put $limit*($page - 1)
-			if ($start < 0) $start = 0;
-			if (isset($request->input()["search"]))
-				$users = EN_scan::with('scan')->where($request->input()["type"], $request->input()["search"] )->orderBy($sidx, $sord)->take($limit)->skip($start)->get();
-			else $users = EN_scan::with('scan')->orderBy($sidx, $sord)->take($limit)->skip($start)->get();
+			else{
+				$whereq = [];
+				$catg = "volt" ;if(isset($request->input()[$catg]) && !empty($request->input()[$catg])) $whereq[$catg] = $request->input()[$catg];
+				$catg = "type" ;if(isset($request->input()[$catg]) && !empty($request->input()[$catg])) $whereq[$catg] = $request->input()[$catg];
+				$catg = "ph" ;if(isset($request->input()[$catg]) && !empty($request->input()[$catg])) $whereq[$catg] = $request->input()[$catg];
+				$catg = "vector" ;if(isset($request->input()[$catg]) && !empty($request->input()[$catg])) $whereq[$catg] = $request->input()[$catg];
+				$catg = "kva" ;if(isset($request->input()[$catg]) && !empty($request->input()[$catg])) $whereq[$catg] = $request->input()[$catg];
+				//$whereq["type"] =  isset($request->input()["type"]) && !empty($request->input()["type"]) ? $request->input()["type"] : "";
+				//$whereq["ph"] = isset($request->input()["ph"]) && !empty($request->input()["ph"]) ?  $request->input()["ph"] : "";
+				//$whereq["vector"] = isset($request->input()["vector"]) && !empty($request->input()["vector"]) ?  $request->input()["vector"] : "";
+				//$whereq["kva"] = isset($request->input()["kva"]) && !empty($request->input()["kva"]) ?  $request->input()["kva"] : "";
 
+				$count = EN_scan::where($whereq)->get()->count();
+
+				if ($count > 0) {
+					$total_pages = ceil($count / $limit);
+				} else {
+					$total_pages = 0;
+				}
+				if ($page > $total_pages) $page = $total_pages;
+				$start = $limit * $page - $limit; // do not put $limit*($page - 1)
+				if ($start < 0) $start = 0;
+				//if (isset($request->input()["search"]))
+					$users = EN_scan::with('scan')->where($whereq)->orderBy($sidx, $sord)->take($limit)->skip($start)->get();
+				//else $users = EN_scan::with('scan')->orderBy($sidx, $sord)->take($limit)->skip($start)->get();
+			}
 			$i = 0;
 			$responce['page'] = $page;
 			$responce['total'] = $total_pages;

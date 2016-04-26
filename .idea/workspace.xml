@@ -25,15 +25,9 @@
       <file leaf-file-name="d_en_scan_search.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://T:/resources/views/EN/d_en_scan_search.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7115942">
-              <caret line="352" column="37" selection-start-line="352" selection-start-column="37" selection-end-line="352" selection-end-column="37" />
-              <folding>
-                <element signature="e#4225#4245#0#HTML" expanded="true" />
-                <element signature="e#5055#5075#0#HTML" expanded="true" />
-                <element signature="e#5874#5894#0#HTML" expanded="true" />
-                <element signature="e#6691#6711#0#HTML" expanded="true" />
-                <element signature="e#7518#7538#0#HTML" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="2.094203">
+              <caret line="85" column="67" selection-start-line="85" selection-start-column="67" selection-end-line="85" selection-end-column="67" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -41,65 +35,20 @@
       <file leaf-file-name="EN_Scan_Controller.php" pinned="false" current-in-tab="false">
         <entry file="file://T:/app/Http/Controllers/EN_Scan_Controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.538462">
-              <caret line="143" column="74" selection-start-line="143" selection-start-column="74" selection-end-line="143" selection-end-column="74" />
+            <state vertical-scroll-proportion="-5.1320753">
+              <caret line="179" column="28" selection-start-line="179" selection-start-column="28" selection-end-line="179" selection-end-column="28" />
               <folding>
-                <marker date="1461314490826" expanded="true" signature="636:719" placeholder="SELECT COUNT... en_scan_log" />
-                <marker date="1461314490826" expanded="true" signature="791:879" placeholder="SELECT COUNT... en_scan_complete" />
-                <marker date="1461314490826" expanded="true" signature="1607:1872" placeholder="select t1.Al... COUNT" />
-                <marker date="1461314490826" expanded="true" signature="1649:1735" placeholder="SELECT COUNT... " />
-                <marker date="1461314490826" expanded="true" signature="1751:1847" placeholder="SELECT COUNT... " />
-                <marker date="1461314490826" expanded="true" signature="2093:2232" placeholder="SELECT MAX(C... en_scan" />
-                <marker date="1461314490826" expanded="true" signature="3507:3772" placeholder="select t1.Al... COUNT" />
-                <marker date="1461314490826" expanded="true" signature="3549:3635" placeholder="SELECT COUNT... " />
-                <marker date="1461314490826" expanded="true" signature="3651:3747" placeholder="SELECT COUNT... " />
-                <marker date="1461314490826" expanded="true" signature="3840:3979" placeholder="SELECT MAX(C... en_scan" />
-                <marker date="1461314490826" expanded="true" signature="5096:5136" placeholder="select * fro... en_scan_log" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="buttons.html" pinned="false" current-in-tab="false">
-        <entry file="file://T:/public/assets/buttons.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0384617">
-              <caret line="520" column="132" selection-start-line="520" selection-start-column="32" selection-end-line="520" selection-end-column="132" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form_advanced.html" pinned="false" current-in-tab="false">
-        <entry file="file://T:/public/assets/form_advanced.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.769231">
-              <caret line="449" column="85" selection-start-line="449" selection-start-column="85" selection-end-line="449" selection-end-column="105" />
-              <folding>
-                <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form_basic.html" pinned="false" current-in-tab="false">
-        <entry file="file://T:/public/assets/form_basic.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.7818184">
-              <caret line="373" column="154" selection-start-line="373" selection-start-column="36" selection-end-line="373" selection-end-column="154" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tabs_panels.html" pinned="false" current-in-tab="false">
-        <entry file="file://T:/public/assets/tabs_panels.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-50.01818">
-              <caret line="562" column="28" selection-start-line="562" selection-start-column="28" selection-end-line="562" selection-end-column="28" />
-              <folding>
-                <element signature="n#div#2;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#3;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <marker date="1461639369221" expanded="true" signature="636:719" placeholder="SELECT COUNT... en_scan_log" />
+                <marker date="1461639369221" expanded="true" signature="791:879" placeholder="SELECT COUNT... en_scan_complete" />
+                <marker date="1461639369221" expanded="true" signature="1607:1872" placeholder="select t1.Al... COUNT" />
+                <marker date="1461639369221" expanded="true" signature="1649:1735" placeholder="SELECT COUNT... " />
+                <marker date="1461639369221" expanded="true" signature="1751:1847" placeholder="SELECT COUNT... " />
+                <marker date="1461639369221" expanded="true" signature="2093:2232" placeholder="SELECT MAX(C... en_scan" />
+                <marker date="1461639369221" expanded="true" signature="3507:3772" placeholder="select t1.Al... COUNT" />
+                <marker date="1461639369221" expanded="true" signature="3549:3635" placeholder="SELECT COUNT... " />
+                <marker date="1461639369221" expanded="true" signature="3651:3747" placeholder="SELECT COUNT... " />
+                <marker date="1461639369221" expanded="true" signature="3840:3979" placeholder="SELECT MAX(C... en_scan" />
+                <marker date="1461639369221" expanded="true" signature="5096:5136" placeholder="select * fro... en_scan_log" />
               </folding>
             </state>
           </provider>
@@ -113,6 +62,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="Z:/resources/views/EN/d_en_scan_search.blade.php" />
+        <option value="Z:/app/Http/Controllers/EN_Scan_Controller.php" />
         <option value="T:/app/Http/Controllers/EN_Scan_Controller.php" />
         <option value="T:/resources/views/EN/d_en_scan_search.blade.php" />
       </list>
@@ -122,11 +73,6 @@
   <component name="JsBuildToolPackageJson" detection-done="true" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
-    <gulpfiles>
-      <GulpfileState>
-        <gulpfile-path>T:/gulpfile.js</gulpfile-path>
-      </GulpfileState>
-    </gulpfiles>
   </component>
   <component name="PhpServers">
     <servers />
@@ -163,8 +109,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -193,7 +137,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="T" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="T:" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EN" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="T" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="T:" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -208,10 +192,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -257,10 +237,13 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="Z:/" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -278,6 +261,11 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -301,11 +289,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25716332" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26862463" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -318,6 +305,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -340,96 +328,31 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://T:/resources/views/EN/d_en_scan_search.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#4225#4245#0#HTML" expanded="true" />
-            <element signature="e#5055#5075#0#HTML" expanded="true" />
-            <element signature="e#5874#5894#0#HTML" expanded="true" />
-            <element signature="e#6691#6711#0#HTML" expanded="true" />
-            <element signature="e#7518#7538#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://T:/public/assets/tabs_panels.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-50.01818">
-          <caret line="562" column="28" selection-start-line="562" selection-start-column="28" selection-end-line="562" selection-end-column="28" />
-          <folding>
-            <element signature="n#div#2;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://T:/public/assets/form_basic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.7818184">
-          <caret line="373" column="154" selection-start-line="373" selection-start-column="36" selection-end-line="373" selection-end-column="154" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://T:/public/assets/form_advanced.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.769231">
-          <caret line="449" column="85" selection-start-line="449" selection-start-column="85" selection-end-line="449" selection-end-column="105" />
-          <folding>
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://T:/app/Model/en_scan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19710144">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://T:/app/Http/Controllers/EN_Scan_Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.538462">
-          <caret line="143" column="74" selection-start-line="143" selection-start-column="74" selection-end-line="143" selection-end-column="74" />
+        <state vertical-scroll-proportion="-5.1320753">
+          <caret line="179" column="28" selection-start-line="179" selection-start-column="28" selection-end-line="179" selection-end-column="28" />
           <folding>
-            <marker date="1461314490826" expanded="true" signature="636:719" placeholder="SELECT COUNT... en_scan_log" />
-            <marker date="1461314490826" expanded="true" signature="791:879" placeholder="SELECT COUNT... en_scan_complete" />
-            <marker date="1461314490826" expanded="true" signature="1607:1872" placeholder="select t1.Al... COUNT" />
-            <marker date="1461314490826" expanded="true" signature="1649:1735" placeholder="SELECT COUNT... " />
-            <marker date="1461314490826" expanded="true" signature="1751:1847" placeholder="SELECT COUNT... " />
-            <marker date="1461314490826" expanded="true" signature="2093:2232" placeholder="SELECT MAX(C... en_scan" />
-            <marker date="1461314490826" expanded="true" signature="3507:3772" placeholder="select t1.Al... COUNT" />
-            <marker date="1461314490826" expanded="true" signature="3549:3635" placeholder="SELECT COUNT... " />
-            <marker date="1461314490826" expanded="true" signature="3651:3747" placeholder="SELECT COUNT... " />
-            <marker date="1461314490826" expanded="true" signature="3840:3979" placeholder="SELECT MAX(C... en_scan" />
-            <marker date="1461314490826" expanded="true" signature="5096:5136" placeholder="select * fro... en_scan_log" />
+            <marker date="1461639369221" expanded="true" signature="636:719" placeholder="SELECT COUNT... en_scan_log" />
+            <marker date="1461639369221" expanded="true" signature="791:879" placeholder="SELECT COUNT... en_scan_complete" />
+            <marker date="1461639369221" expanded="true" signature="1607:1872" placeholder="select t1.Al... COUNT" />
+            <marker date="1461639369221" expanded="true" signature="1649:1735" placeholder="SELECT COUNT... " />
+            <marker date="1461639369221" expanded="true" signature="1751:1847" placeholder="SELECT COUNT... " />
+            <marker date="1461639369221" expanded="true" signature="2093:2232" placeholder="SELECT MAX(C... en_scan" />
+            <marker date="1461639369221" expanded="true" signature="3507:3772" placeholder="select t1.Al... COUNT" />
+            <marker date="1461639369221" expanded="true" signature="3549:3635" placeholder="SELECT COUNT... " />
+            <marker date="1461639369221" expanded="true" signature="3651:3747" placeholder="SELECT COUNT... " />
+            <marker date="1461639369221" expanded="true" signature="3840:3979" placeholder="SELECT MAX(C... en_scan" />
+            <marker date="1461639369221" expanded="true" signature="5096:5136" placeholder="select * fro... en_scan_log" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://T:/public/assets/buttons.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0384617">
-          <caret line="520" column="132" selection-start-line="520" selection-start-column="32" selection-end-line="520" selection-end-column="132" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://T:/resources/views/EN/d_en_scan_search.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7115942">
-          <caret line="352" column="37" selection-start-line="352" selection-start-column="37" selection-end-line="352" selection-end-column="37" />
-          <folding>
-            <element signature="e#4225#4245#0#HTML" expanded="true" />
-            <element signature="e#5055#5075#0#HTML" expanded="true" />
-            <element signature="e#5874#5894#0#HTML" expanded="true" />
-            <element signature="e#6691#6711#0#HTML" expanded="true" />
-            <element signature="e#7518#7538#0#HTML" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="2.094203">
+          <caret line="85" column="67" selection-start-line="85" selection-start-column="67" selection-end-line="85" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>
