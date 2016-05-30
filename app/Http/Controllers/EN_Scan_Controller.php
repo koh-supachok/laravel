@@ -145,7 +145,12 @@ class EN_Scan_Controller extends Controller
     {
         $user = Auth::user();
 		$menu = Menu::create();
-        return view('EN.d_en_scan_search',compact('menu','user'));
+		$option['kva'] = EN_scan::select('KVA')->groupBy('KVA')->get();
+		$option['type'] = EN_scan::select('TYPE')->groupBy('TYPE')->get();
+		$option['ph'] = EN_scan::select('PH')->groupBy('PH')->get();
+		$option['vector'] = EN_scan::select('VECTOR')->groupBy('VECTOR')->get();
+		$option['volt'] = EN_scan::select('VOLT')->groupBy('VOLT')->get();
+        return view('EN.d_en_scan_search',compact('menu','user','option'));
     }
 
 	public function en_scan_search_feed(Request $request)
@@ -156,23 +161,50 @@ class EN_Scan_Controller extends Controller
 			$sidx = $request->input()['sidx']; // get index row - i.e. user click to sort
 			$sord = $request->input()['sord']; // get the direction
 			if (!$sidx) $sidx = 1;
-			$en_scan = EN_scan::get();
+			//$en_scan = EN_scan::get();
 			$responce = array();
-			if (isset($request->input()["search"]))
-				$count = EN_scan::where('FILE', 'like', '%' . $request->input()["search"] . '%')->get()->count();
-			else $count = EN_scan::get()->count();;
-			if ($count > 0) {
-				$total_pages = ceil($count / $limit);
-			} else {
-				$total_pages = 0;
+			if(!isset($request->input()['asearch'])) {
+				if (isset($request->input()["search"]))
+					$count = EN_scan::where($request->input()["type"], $request->input()["search"])->get()->count();
+				else $count = EN_scan::get()->count();
+				if ($count > 0) {
+					$total_pages = ceil($count / $limit);
+				} else {
+					$total_pages = 0;
+				}
+				if ($page > $total_pages) $page = $total_pages;
+				$start = $limit * $page - $limit; // do not put $limit*($page - 1)
+				if ($start < 0) $start = 0;
+				if (isset($request->input()["search"]))
+					$users = EN_scan::with('scan')->where($request->input()["type"], $request->input()["search"])->orderBy($sidx, $sord)->take($limit)->skip($start)->get();
+				else $users = EN_scan::with('scan')->orderBy($sidx, $sord)->take($limit)->skip($start)->get();
 			}
-			if ($page > $total_pages) $page = $total_pages;
-			$start = $limit * $page - $limit; // do not put $limit*($page - 1)
-			if ($start < 0) $start = 0;
-			if (isset($request->input()["search"]))
-				$users = EN_scan::with('scan')->where('FILE', 'like', '%' . $request->input()["search"] . '%')->orderBy($sidx, $sord)->take($limit)->skip($start)->get();
-			else $users = EN_scan::with('scan')->orderBy($sidx, $sord)->take($limit)->skip($start)->get();
+			else{
+				$whereq = [];
+				$catg = "volt" ;if(isset($request->input()[$catg]) && !empty($request->input()[$catg])) $whereq[$catg] = $request->input()[$catg];
+				$catg = "type" ;if(isset($request->input()[$catg]) && !empty($request->input()[$catg])) $whereq[$catg] = $request->input()[$catg];
+				$catg = "ph" ;if(isset($request->input()[$catg]) && !empty($request->input()[$catg])) $whereq[$catg] = $request->input()[$catg];
+				$catg = "vector" ;if(isset($request->input()[$catg]) && !empty($request->input()[$catg])) $whereq[$catg] = $request->input()[$catg];
+				$catg = "kva" ;if(isset($request->input()[$catg]) && !empty($request->input()[$catg])) $whereq[$catg] = $request->input()[$catg];
+				//$whereq["type"] =  isset($request->input()["type"]) && !empty($request->input()["type"]) ? $request->input()["type"] : "";
+				//$whereq["ph"] = isset($request->input()["ph"]) && !empty($request->input()["ph"]) ?  $request->input()["ph"] : "";
+				//$whereq["vector"] = isset($request->input()["vector"]) && !empty($request->input()["vector"]) ?  $request->input()["vector"] : "";
+				//$whereq["kva"] = isset($request->input()["kva"]) && !empty($request->input()["kva"]) ?  $request->input()["kva"] : "";
 
+				$count = EN_scan::where($whereq)->get()->count();
+
+				if ($count > 0) {
+					$total_pages = ceil($count / $limit);
+				} else {
+					$total_pages = 0;
+				}
+				if ($page > $total_pages) $page = $total_pages;
+				$start = $limit * $page - $limit; // do not put $limit*($page - 1)
+				if ($start < 0) $start = 0;
+				//if (isset($request->input()["search"]))
+					$users = EN_scan::with('scan')->where($whereq)->orderBy($sidx, $sord)->take($limit)->skip($start)->get();
+				//else $users = EN_scan::with('scan')->orderBy($sidx, $sord)->take($limit)->skip($start)->get();
+			}
 			$i = 0;
 			$responce['page'] = $page;
 			$responce['total'] = $total_pages;
@@ -195,7 +227,7 @@ class EN_Scan_Controller extends Controller
 				$responce['total'] = 1;
 				$responce['records'] = 1;
 				$responce['rows'][$i]['id'] = $i;
-				$responce['rows'][$i]['cell'] = array('EN-D-001', 'ทั้งหมด', '-', '<a href="/assets/docscan/OK/' . $file . '/EN-D-001 - All.pdf">download</a>');
+				$responce['rows'][$i]['cell'] = array('EN-D-001', 'ทั้งหมด', '-', '<a target="_blank" href="/assets/docscan/OK/' . $file . '/EN-D-001 - All.pdf">download</a>');
 				$i++;
 			}
 			if($sub[0]->en_d_002_pages > 0) {
@@ -205,7 +237,7 @@ class EN_Scan_Controller extends Controller
 					$ch_num = explode(":", $user)[0];
 					$chap_name = EN_scan_chapter::where('id', $ch_num)->get();
 					$responce['rows'][$i]['id'] = $i;//EN-D-002 - บทที่ 0 - สารบัญ
-					$responce['rows'][$i]['cell'] = array('EN-D-002', $ch_num, $chap_name[0]->name, '<a href="/assets/docscan/OK/' . $file . '/EN-D-002 - บทที่ ' . $ch2_idx . ' - ' . $chap_name[0]->name . '.pdf">download</a>');
+					$responce['rows'][$i]['cell'] = array('EN-D-002', $ch_num, $chap_name[0]->name, '<a target="_blank" href="/assets/docscan/OK/' . $file . '/EN-D-002 - บทที่ ' . $ch2_idx . ' - ' . $chap_name[0]->name . '.pdf">download</a>');
 					$i++;
 					$ch2_idx++;
 				}
@@ -215,7 +247,7 @@ class EN_Scan_Controller extends Controller
 				$responce['total'] = 1;
 				$responce['records'] = 1;
 				$responce['rows'][$i]['id'] = $i;
-				$responce['rows'][$i]['cell'] = array('EN-D-003', 'ทั้งหมด', '-', '<a href="/assets/docscan/OK/' . $file . '/EN-D-003 - All.pdf">download</a>');
+				$responce['rows'][$i]['cell'] = array('EN-D-003', 'ทั้งหมด', '-', '<a target="_blank" href="/assets/docscan/OK/' . $file . '/EN-D-003 - All.pdf">download</a>');
 				$i++;
 			}
 			if($sub[0]->other > 0) {
@@ -223,7 +255,7 @@ class EN_Scan_Controller extends Controller
 				$responce['total'] = 1;
 				$responce['records'] = 1;
 				$responce['rows'][$i]['id'] = $i;
-				$responce['rows'][$i]['cell'] = array('อื่นๆ', 'ทั้งหมด', '-', '<a href="/assets/docscan/OK/' . $file . '/EN-D-004 - All.pdf">download</a>');
+				$responce['rows'][$i]['cell'] = array('อื่นๆ', 'ทั้งหมด', '-', '<a target="_blank" href="/assets/docscan/OK/' . $file . '/EN-D-004 - All.pdf">download</a>');
 				$i++;
 			}
 //			$responce['page'] = 1;
