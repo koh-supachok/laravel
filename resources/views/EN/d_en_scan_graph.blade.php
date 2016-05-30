@@ -65,7 +65,7 @@
                         <small>วัน</small>
                     </div>
                 </div>
-            </div>
+            </div> 
             <div class="col-lg-3">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">

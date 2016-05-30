@@ -97,6 +97,7 @@ class EN_Scan_Controller extends Controller
         $last_3 = $arr = array_slice($results, -4);
         $en_scan_avg = ($last_3[0]->Complete + $last_3[1]->Complete + $last_3[2]->Complete)/3;
 
+		
 		$cnt = 0;
 
         $scan['Count_All'] = number_format($en_scan[0]->mfile);
