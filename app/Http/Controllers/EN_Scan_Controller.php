@@ -88,6 +88,12 @@ class EN_Scan_Controller extends Controller
         $rawqry = "SELECT MAX(CAST(`FILE` AS UNSIGNED) ) AS 'mfile' FROM `en_scan` WHERE concat('',`FILE` * 1) = `FILE` ORDER BY CAST(`FILE` AS UNSIGNED) DESC";
         $en_scan = DB::select( DB::raw($rawqry) );
 
+		$rawqry = "SELECT SUM(en_d_001+en_d_002_pages+en_d_003+other) as total FROM `en_scan_complete` LEFT JOIN en_scan_pages ON en_scan_complete.file = en_scan_pages.file";
+		$page_scan = DB::select( DB::raw($rawqry) );
+
+		$rawqry = "SELECT COUNT(DISTINCT DATE(ca_dt)) as days FROM `en_scan_complete`";
+		$day_scan = DB::select( DB::raw($rawqry) );
+
         $last_3 = $arr = array_slice($results, -4);
         $en_scan_avg = ($last_3[0]->Complete + $last_3[1]->Complete + $last_3[2]->Complete)/3;
 
@@ -98,6 +104,8 @@ class EN_Scan_Controller extends Controller
         $scan['speed'] = number_format($en_scan_avg);
         $scan['est'] = number_format(($en_scan[0]->mfile/$en_scan_avg)/22, 2, '.', '');
         $scan['progress'] = number_format($en_scan_complete->count()*100/(($en_scan[0]->mfile)), 2, '.', '');
+		$scan['page_scan'] = number_format($page_scan[0]->total);
+		$scan['day_scan'] = number_format($day_scan[0]->days);
 
 		foreach ($results as $rec) {
 			$scan['All'][$cnt] = (int)$rec->All;

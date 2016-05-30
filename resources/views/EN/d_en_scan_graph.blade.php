@@ -20,12 +20,49 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <span class="label label-info pull-right">OK</span>
-                        <h5>แสกนสำเร็จ</h5>
+                        <h5>แสกนสำเร็จ (แฟ้ม)</h5>
                     </div>
                     <div class="ibox-content">
                         <h1 class="no-margins">{{$scan['Count_OK']}}</h1>
-                        <div class="stat-percent font-bold text-info">{{$scan['progress']}}% <i class="fa fa-line-chart"></i></div>
                         <small>แฟ้ม</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-info pull-right">Pages scanned</span>
+                        <h5>แสกนสำเร็จ (หน้า)</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{$scan['page_scan']}}</h1>
+
+                        <small>หน้า</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-info pull-right">Progress</span>
+                        <h5>แสกนสำเร็จ (%)</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{$scan['progress']}}%</h1>
+                        <small>&nbsp;</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-warning pull-right">Days</span>
+                        <h5>จำนวนวันสแกน</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{$scan['day_scan']}} </h1>
+                        <div class="stat-percent font-bold text-warning">เริ่มเมื่อ 8 มี.ค. 59 <i class="fa fa-calendar "></i></div>
+                        <small>วัน</small>
                     </div>
                 </div>
             </div>
