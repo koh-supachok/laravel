@@ -94,10 +94,18 @@ class EN_Scan_Controller extends Controller
 		$rawqry = "SELECT COUNT(DISTINCT DATE(ca_dt)) as days FROM `en_scan_complete`";
 		$day_scan = DB::select( DB::raw($rawqry) );
 
-        $last_3 = $arr = array_slice($results, -4);
+		//$rawqry = "SELECT SUM(en_d_001+en_d_002_pages+en_d_003+other) as total FROM `en_scan_complete` LEFT JOIN en_scan_pages ON en_scan_complete.file = en_scan_pages.file GROUP BY DATE(en_scan_complete.ca_dt) ORDER BY DATE(en_scan_complete.ca_dt) DESC LIMIT 3";
+		$rawqry = "SELECT DATE(en_scan_complete.ca_dt) as date ,SUM(en_d_001+en_d_002_pages+en_d_003+other) as total FROM `en_scan_complete` LEFT JOIN en_scan_pages ON en_scan_complete.file = en_scan_pages.file GROUP BY DATE(en_scan_complete.ca_dt) ORDER BY DATE(en_scan_complete.ca_dt)";
+		$page_scan3 = DB::select( DB::raw($rawqry) );
+
+        $last_3 = array_slice($results, -4);
         $en_scan_avg = ($last_3[0]->Complete + $last_3[1]->Complete + $last_3[2]->Complete)/3;
 
+		$page_last3_cnt = count($page_scan3);
+		$page_last3 = 	($page_scan3[$page_last3_cnt-1]->total)+($page_scan3[$page_last3_cnt-2]->total)+($page_scan3[$page_last3_cnt-3]->total);
+
 		$cnt = 0;
+		$cmpsum = 0;
 
         $scan['Count_All'] = number_format($en_scan[0]->mfile);
         $scan['Count_OK'] = number_format($en_scan_complete->count());
@@ -106,11 +114,21 @@ class EN_Scan_Controller extends Controller
         $scan['progress'] = number_format($en_scan_complete->count()*100/(($en_scan[0]->mfile)), 2, '.', '');
 		$scan['page_scan'] = number_format($page_scan[0]->total);
 		$scan['day_scan'] = number_format($day_scan[0]->days);
-
+		$scan['ok_avg'] = number_format(($en_scan_complete->count())/($day_scan[0]->days));
+		//$scan['pages_avg'] = number_format(($page_scan[0]->total)/($day_scan[0]->days));
+		$scan['pages_avg'] = number_format($page_last3/3);
 		foreach ($results as $rec) {
 			$scan['All'][$cnt] = (int)$rec->All;
 			$scan['Complete'][$cnt] = (int)$rec->Complete;
+			$cmpsum += (int)$rec->Complete;
+			$scan['Cumu'][$cnt] = $cmpsum;
 			$scan['Date'][$cnt] = date("M d", strtotime($rec->Date));
+			$cnt++;
+		}
+		$cnt = 0;
+		foreach ($page_scan3 as $rec) {
+			$scan['page_day'][$cnt] = (int)$rec->total;
+			$scan['pDate'][$cnt] = date("M d", strtotime($rec->date));
 			$cnt++;
 		}
 		if ($user)
