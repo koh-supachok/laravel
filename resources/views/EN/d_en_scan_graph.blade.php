@@ -79,6 +79,7 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="col-lg-3">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
@@ -90,6 +91,14 @@
 
                             <small style='text-align:justify;'>หน้า / วัน</small>
                         </div>
+=======
+            </div> 
+            <div class="col-lg-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-primary pull-right">Speed</span>
+                        <h5>ความเร็วเฉลี่ย (3วัน)</h5>
+>>>>>>> 86491193df6a9f64d33e22bbb8854478fb58d16a
                     </div>
                 </div>
                 <div class="col-lg-3">

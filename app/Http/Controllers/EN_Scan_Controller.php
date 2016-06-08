@@ -101,9 +101,13 @@ class EN_Scan_Controller extends Controller
         $last_3 = array_slice($results, -4);
         $en_scan_avg = ($last_3[0]->Complete + $last_3[1]->Complete + $last_3[2]->Complete)/3;
 
+<<<<<<< HEAD
 		$page_last3_cnt = count($page_scan3);
 		$page_last3 = 	($page_scan3[$page_last3_cnt-1]->total)+($page_scan3[$page_last3_cnt-2]->total)+($page_scan3[$page_last3_cnt-3]->total);
 
+=======
+		
+>>>>>>> 86491193df6a9f64d33e22bbb8854478fb58d16a
 		$cnt = 0;
 		$cmpsum = 0;
 
